@@ -2,7 +2,8 @@
 """Reverse-geocode building centroids with LocationIQ.
 
 Usage:
-    export LOCATIONIQ_KEY=your_key_here
+    Put LOCATIONIQ_KEY=your_key_here in .env at the repo root (copy .env.example),
+    or export it in your shell, then:
     python3 scripts/geocode.py [footprints.geojson] [addresses.json]
 
 Defaults to the dummy footprints. Results are cached per id in
@@ -20,6 +21,22 @@ from pathlib import Path
 ID_FIELD = "id"
 USER_AGENT = "damage-map-hackathon/0.1"
 GEOCODER_URL = "https://us1.locationiq.com/v1/reverse"  # Nominatim-compatible response format
+ROOT = Path(__file__).resolve().parent.parent
+
+
+def load_env(path):
+    """Read KEY=value lines from a .env file into os.environ (real env vars win)."""
+    if not path.exists():
+        return
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        os.environ.setdefault(key.strip(), value.strip().strip("'\""))
+
+
+load_env(ROOT / ".env")
 API_KEY = os.environ.get("LOCATIONIQ_KEY")
 DELAY_SECONDS = 0.6  # LocationIQ free tier: max 2 requests/sec
 UNKNOWN = "Unknown location"
@@ -95,7 +112,7 @@ def reverse(lon, lat):
 
 def main():
     if not API_KEY:
-        sys.exit("Set your key first: export LOCATIONIQ_KEY=your_key_here")
+        sys.exit("No key found. Add LOCATIONIQ_KEY=your_key_here to .env (see .env.example)")
     src = Path(sys.argv[1]) if len(sys.argv) > 1 else DATA / "dummy_footprints.geojson"
     dst = Path(sys.argv[2]) if len(sys.argv) > 2 else DATA / "addresses.json"
 
