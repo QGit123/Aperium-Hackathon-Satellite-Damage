@@ -1,0 +1,1106 @@
+{
+  "bldg_001": {
+    "damage": "destroyed",
+    "confidence": 0.88
+  },
+  "bldg_002": {
+    "damage": "destroyed",
+    "confidence": 0.82
+  },
+  "bldg_003": {
+    "damage": "destroyed",
+    "confidence": 0.98
+  },
+  "bldg_004": {
+    "damage": "destroyed",
+    "confidence": 0.88
+  },
+  "bldg_005": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_006": {
+    "damage": "destroyed",
+    "confidence": 0.82
+  },
+  "bldg_007": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_008": {
+    "damage": "destroyed",
+    "confidence": 0.93
+  },
+  "bldg_009": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_010": {
+    "damage": "destroyed",
+    "confidence": 0.86
+  },
+  "bldg_011": {
+    "damage": "destroyed",
+    "confidence": 0.9
+  },
+  "bldg_012": {
+    "damage": "destroyed",
+    "confidence": 0.91
+  },
+  "bldg_013": {
+    "damage": "destroyed",
+    "confidence": 0.89
+  },
+  "bldg_014": {
+    "damage": "destroyed",
+    "confidence": 0.91
+  },
+  "bldg_015": {
+    "damage": "destroyed",
+    "confidence": 0.86
+  },
+  "bldg_016": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_017": {
+    "damage": "destroyed",
+    "confidence": 0.95
+  },
+  "bldg_018": {
+    "damage": "destroyed",
+    "confidence": 0.97
+  },
+  "bldg_019": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_020": {
+    "damage": "destroyed",
+    "confidence": 0.78
+  },
+  "bldg_021": {
+    "damage": "destroyed",
+    "confidence": 0.97
+  },
+  "bldg_022": {
+    "damage": "destroyed",
+    "confidence": 0.93
+  },
+  "bldg_023": {
+    "damage": "destroyed",
+    "confidence": 0.83
+  },
+  "bldg_024": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_025": {
+    "damage": "major",
+    "confidence": 0.84
+  },
+  "bldg_026": {
+    "damage": "destroyed",
+    "confidence": 0.93
+  },
+  "bldg_027": {
+    "damage": "major",
+    "confidence": 0.8
+  },
+  "bldg_028": {
+    "damage": "destroyed",
+    "confidence": 0.75
+  },
+  "bldg_029": {
+    "damage": "destroyed",
+    "confidence": 0.88
+  },
+  "bldg_030": {
+    "damage": "destroyed",
+    "confidence": 0.89
+  },
+  "bldg_031": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_032": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_033": {
+    "damage": "destroyed",
+    "confidence": 0.81
+  },
+  "bldg_034": {
+    "damage": "destroyed",
+    "confidence": 0.89
+  },
+  "bldg_035": {
+    "damage": "destroyed",
+    "confidence": 0.92
+  },
+  "bldg_036": {
+    "damage": "destroyed",
+    "confidence": 0.94
+  },
+  "bldg_037": {
+    "damage": "destroyed",
+    "confidence": 0.93
+  },
+  "bldg_038": {
+    "damage": "destroyed",
+    "confidence": 0.77
+  },
+  "bldg_039": {
+    "damage": "destroyed",
+    "confidence": 0.92
+  },
+  "bldg_040": {
+    "damage": "destroyed",
+    "confidence": 0.91
+  },
+  "bldg_041": {
+    "damage": "destroyed",
+    "confidence": 0.9
+  },
+  "bldg_042": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_043": {
+    "damage": "destroyed",
+    "confidence": 0.8
+  },
+  "bldg_044": {
+    "damage": "destroyed",
+    "confidence": 0.84
+  },
+  "bldg_045": {
+    "damage": "destroyed",
+    "confidence": 0.88
+  },
+  "bldg_046": {
+    "damage": "destroyed",
+    "confidence": 0.75
+  },
+  "bldg_047": {
+    "damage": "destroyed",
+    "confidence": 0.98
+  },
+  "bldg_048": {
+    "damage": "destroyed",
+    "confidence": 0.94
+  },
+  "bldg_049": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_050": {
+    "damage": "destroyed",
+    "confidence": 0.86
+  },
+  "bldg_051": {
+    "damage": "destroyed",
+    "confidence": 0.96
+  },
+  "bldg_052": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_053": {
+    "damage": "destroyed",
+    "confidence": 0.98
+  },
+  "bldg_054": {
+    "damage": "destroyed",
+    "confidence": 0.83
+  },
+  "bldg_055": {
+    "damage": "destroyed",
+    "confidence": 0.83
+  },
+  "bldg_056": {
+    "damage": "destroyed",
+    "confidence": 0.89
+  },
+  "bldg_057": {
+    "damage": "destroyed",
+    "confidence": 0.89
+  },
+  "bldg_058": {
+    "damage": "destroyed",
+    "confidence": 0.9
+  },
+  "bldg_059": {
+    "damage": "destroyed",
+    "confidence": 0.8
+  },
+  "bldg_060": {
+    "damage": "destroyed",
+    "confidence": 0.83
+  },
+  "bldg_061": {
+    "damage": "destroyed",
+    "confidence": 0.86
+  },
+  "bldg_062": {
+    "damage": "destroyed",
+    "confidence": 0.84
+  },
+  "bldg_063": {
+    "damage": "destroyed",
+    "confidence": 0.84
+  },
+  "bldg_064": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_065": {
+    "damage": "destroyed",
+    "confidence": 0.79
+  },
+  "bldg_066": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_067": {
+    "damage": "destroyed",
+    "confidence": 0.91
+  },
+  "bldg_068": {
+    "damage": "destroyed",
+    "confidence": 0.93
+  },
+  "bldg_069": {
+    "damage": "destroyed",
+    "confidence": 0.78
+  },
+  "bldg_070": {
+    "damage": "destroyed",
+    "confidence": 0.89
+  },
+  "bldg_071": {
+    "damage": "destroyed",
+    "confidence": 0.86
+  },
+  "bldg_072": {
+    "damage": "destroyed",
+    "confidence": 0.95
+  },
+  "bldg_073": {
+    "damage": "destroyed",
+    "confidence": 0.94
+  },
+  "bldg_074": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_075": {
+    "damage": "destroyed",
+    "confidence": 0.84
+  },
+  "bldg_076": {
+    "damage": "destroyed",
+    "confidence": 0.84
+  },
+  "bldg_077": {
+    "damage": "destroyed",
+    "confidence": 0.8
+  },
+  "bldg_078": {
+    "damage": "destroyed",
+    "confidence": 0.93
+  },
+  "bldg_079": {
+    "damage": "destroyed",
+    "confidence": 0.89
+  },
+  "bldg_080": {
+    "damage": "destroyed",
+    "confidence": 0.82
+  },
+  "bldg_081": {
+    "damage": "destroyed",
+    "confidence": 0.91
+  },
+  "bldg_082": {
+    "damage": "destroyed",
+    "confidence": 0.76
+  },
+  "bldg_083": {
+    "damage": "destroyed",
+    "confidence": 0.9
+  },
+  "bldg_084": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_085": {
+    "damage": "destroyed",
+    "confidence": 0.93
+  },
+  "bldg_086": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_087": {
+    "damage": "destroyed",
+    "confidence": 0.82
+  },
+  "bldg_088": {
+    "damage": "destroyed",
+    "confidence": 0.95
+  },
+  "bldg_089": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_090": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_091": {
+    "damage": "destroyed",
+    "confidence": 0.81
+  },
+  "bldg_092": {
+    "damage": "destroyed",
+    "confidence": 0.95
+  },
+  "bldg_093": {
+    "damage": "destroyed",
+    "confidence": 0.98
+  },
+  "bldg_094": {
+    "damage": "destroyed",
+    "confidence": 0.98
+  },
+  "bldg_095": {
+    "damage": "destroyed",
+    "confidence": 0.83
+  },
+  "bldg_096": {
+    "damage": "major",
+    "confidence": 0.72
+  },
+  "bldg_097": {
+    "damage": "destroyed",
+    "confidence": 0.8
+  },
+  "bldg_098": {
+    "damage": "destroyed",
+    "confidence": 0.82
+  },
+  "bldg_099": {
+    "damage": "destroyed",
+    "confidence": 0.91
+  },
+  "bldg_100": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_101": {
+    "damage": "destroyed",
+    "confidence": 0.88
+  },
+  "bldg_102": {
+    "damage": "destroyed",
+    "confidence": 0.93
+  },
+  "bldg_103": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_104": {
+    "damage": "destroyed",
+    "confidence": 0.79
+  },
+  "bldg_105": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_106": {
+    "damage": "destroyed",
+    "confidence": 0.93
+  },
+  "bldg_107": {
+    "damage": "destroyed",
+    "confidence": 0.92
+  },
+  "bldg_108": {
+    "damage": "destroyed",
+    "confidence": 0.83
+  },
+  "bldg_109": {
+    "damage": "destroyed",
+    "confidence": 0.83
+  },
+  "bldg_110": {
+    "damage": "destroyed",
+    "confidence": 0.81
+  },
+  "bldg_111": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_112": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_113": {
+    "damage": "destroyed",
+    "confidence": 0.98
+  },
+  "bldg_114": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_115": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_116": {
+    "damage": "destroyed",
+    "confidence": 0.82
+  },
+  "bldg_117": {
+    "damage": "destroyed",
+    "confidence": 0.9
+  },
+  "bldg_118": {
+    "damage": "destroyed",
+    "confidence": 0.98
+  },
+  "bldg_119": {
+    "damage": "destroyed",
+    "confidence": 0.91
+  },
+  "bldg_120": {
+    "damage": "destroyed",
+    "confidence": 0.98
+  },
+  "bldg_121": {
+    "damage": "destroyed",
+    "confidence": 0.75
+  },
+  "bldg_122": {
+    "damage": "destroyed",
+    "confidence": 0.88
+  },
+  "bldg_123": {
+    "damage": "destroyed",
+    "confidence": 0.86
+  },
+  "bldg_124": {
+    "damage": "destroyed",
+    "confidence": 0.86
+  },
+  "bldg_125": {
+    "damage": "destroyed",
+    "confidence": 0.9
+  },
+  "bldg_126": {
+    "damage": "destroyed",
+    "confidence": 0.75
+  },
+  "bldg_127": {
+    "damage": "destroyed",
+    "confidence": 0.93
+  },
+  "bldg_128": {
+    "damage": "destroyed",
+    "confidence": 0.98
+  },
+  "bldg_129": {
+    "damage": "destroyed",
+    "confidence": 0.82
+  },
+  "bldg_130": {
+    "damage": "destroyed",
+    "confidence": 0.82
+  },
+  "bldg_131": {
+    "damage": "destroyed",
+    "confidence": 0.88
+  },
+  "bldg_132": {
+    "damage": "destroyed",
+    "confidence": 0.86
+  },
+  "bldg_133": {
+    "damage": "destroyed",
+    "confidence": 0.84
+  },
+  "bldg_134": {
+    "damage": "destroyed",
+    "confidence": 0.89
+  },
+  "bldg_135": {
+    "damage": "destroyed",
+    "confidence": 0.92
+  },
+  "bldg_136": {
+    "damage": "destroyed",
+    "confidence": 0.91
+  },
+  "bldg_137": {
+    "damage": "major",
+    "confidence": 0.83
+  },
+  "bldg_138": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_139": {
+    "damage": "major",
+    "confidence": 0.84
+  },
+  "bldg_140": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_141": {
+    "damage": "major",
+    "confidence": 0.85
+  },
+  "bldg_142": {
+    "damage": "destroyed",
+    "confidence": 0.91
+  },
+  "bldg_143": {
+    "damage": "destroyed",
+    "confidence": 0.89
+  },
+  "bldg_144": {
+    "damage": "major",
+    "confidence": 0.85
+  },
+  "bldg_145": {
+    "damage": "destroyed",
+    "confidence": 0.82
+  },
+  "bldg_146": {
+    "damage": "destroyed",
+    "confidence": 0.95
+  },
+  "bldg_147": {
+    "damage": "destroyed",
+    "confidence": 0.83
+  },
+  "bldg_148": {
+    "damage": "destroyed",
+    "confidence": 0.92
+  },
+  "bldg_149": {
+    "damage": "major",
+    "confidence": 0.85
+  },
+  "bldg_150": {
+    "damage": "destroyed",
+    "confidence": 0.82
+  },
+  "bldg_151": {
+    "damage": "destroyed",
+    "confidence": 0.79
+  },
+  "bldg_152": {
+    "damage": "destroyed",
+    "confidence": 0.91
+  },
+  "bldg_153": {
+    "damage": "destroyed",
+    "confidence": 0.86
+  },
+  "bldg_154": {
+    "damage": "destroyed",
+    "confidence": 0.91
+  },
+  "bldg_155": {
+    "damage": "major",
+    "confidence": 0.83
+  },
+  "bldg_156": {
+    "damage": "destroyed",
+    "confidence": 0.9
+  },
+  "bldg_157": {
+    "damage": "destroyed",
+    "confidence": 0.84
+  },
+  "bldg_158": {
+    "damage": "major",
+    "confidence": 0.82
+  },
+  "bldg_159": {
+    "damage": "destroyed",
+    "confidence": 0.89
+  },
+  "bldg_160": {
+    "damage": "destroyed",
+    "confidence": 0.77
+  },
+  "bldg_161": {
+    "damage": "destroyed",
+    "confidence": 0.9
+  },
+  "bldg_162": {
+    "damage": "major",
+    "confidence": 0.77
+  },
+  "bldg_163": {
+    "damage": "destroyed",
+    "confidence": 0.88
+  },
+  "bldg_164": {
+    "damage": "destroyed",
+    "confidence": 0.91
+  },
+  "bldg_165": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_166": {
+    "damage": "destroyed",
+    "confidence": 0.82
+  },
+  "bldg_167": {
+    "damage": "destroyed",
+    "confidence": 0.88
+  },
+  "bldg_168": {
+    "damage": "major",
+    "confidence": 0.84
+  },
+  "bldg_169": {
+    "damage": "destroyed",
+    "confidence": 0.88
+  },
+  "bldg_170": {
+    "damage": "destroyed",
+    "confidence": 0.9
+  },
+  "bldg_171": {
+    "damage": "destroyed",
+    "confidence": 0.86
+  },
+  "bldg_172": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_173": {
+    "damage": "destroyed",
+    "confidence": 0.86
+  },
+  "bldg_174": {
+    "damage": "destroyed",
+    "confidence": 0.84
+  },
+  "bldg_175": {
+    "damage": "destroyed",
+    "confidence": 0.8
+  },
+  "bldg_176": {
+    "damage": "major",
+    "confidence": 0.79
+  },
+  "bldg_177": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_178": {
+    "damage": "destroyed",
+    "confidence": 0.77
+  },
+  "bldg_179": {
+    "damage": "destroyed",
+    "confidence": 0.82
+  },
+  "bldg_180": {
+    "damage": "destroyed",
+    "confidence": 0.78
+  },
+  "bldg_181": {
+    "damage": "destroyed",
+    "confidence": 0.82
+  },
+  "bldg_182": {
+    "damage": "destroyed",
+    "confidence": 0.91
+  },
+  "bldg_183": {
+    "damage": "destroyed",
+    "confidence": 0.8
+  },
+  "bldg_184": {
+    "damage": "destroyed",
+    "confidence": 0.84
+  },
+  "bldg_185": {
+    "damage": "destroyed",
+    "confidence": 0.95
+  },
+  "bldg_186": {
+    "damage": "destroyed",
+    "confidence": 0.98
+  },
+  "bldg_187": {
+    "damage": "destroyed",
+    "confidence": 0.76
+  },
+  "bldg_188": {
+    "damage": "destroyed",
+    "confidence": 0.92
+  },
+  "bldg_189": {
+    "damage": "destroyed",
+    "confidence": 0.88
+  },
+  "bldg_190": {
+    "damage": "destroyed",
+    "confidence": 0.92
+  },
+  "bldg_191": {
+    "damage": "destroyed",
+    "confidence": 0.98
+  },
+  "bldg_192": {
+    "damage": "destroyed",
+    "confidence": 0.9
+  },
+  "bldg_193": {
+    "damage": "destroyed",
+    "confidence": 0.96
+  },
+  "bldg_194": {
+    "damage": "destroyed",
+    "confidence": 0.92
+  },
+  "bldg_195": {
+    "damage": "destroyed",
+    "confidence": 0.89
+  },
+  "bldg_196": {
+    "damage": "destroyed",
+    "confidence": 0.79
+  },
+  "bldg_197": {
+    "damage": "destroyed",
+    "confidence": 0.97
+  },
+  "bldg_198": {
+    "damage": "destroyed",
+    "confidence": 0.81
+  },
+  "bldg_199": {
+    "damage": "major",
+    "confidence": 0.84
+  },
+  "bldg_200": {
+    "damage": "destroyed",
+    "confidence": 0.95
+  },
+  "bldg_201": {
+    "damage": "destroyed",
+    "confidence": 0.79
+  },
+  "bldg_202": {
+    "damage": "major",
+    "confidence": 0.84
+  },
+  "bldg_203": {
+    "damage": "destroyed",
+    "confidence": 0.96
+  },
+  "bldg_204": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_205": {
+    "damage": "destroyed",
+    "confidence": 0.87
+  },
+  "bldg_206": {
+    "damage": "destroyed",
+    "confidence": 0.9
+  },
+  "bldg_207": {
+    "damage": "major",
+    "confidence": 0.86
+  },
+  "bldg_208": {
+    "damage": "destroyed",
+    "confidence": 0.98
+  },
+  "bldg_209": {
+    "damage": "destroyed",
+    "confidence": 0.88
+  },
+  "bldg_210": {
+    "damage": "destroyed",
+    "confidence": 0.89
+  },
+  "bldg_211": {
+    "damage": "destroyed",
+    "confidence": 0.84
+  },
+  "bldg_212": {
+    "damage": "major",
+    "confidence": 0.79
+  },
+  "bldg_213": {
+    "damage": "destroyed",
+    "confidence": 0.78
+  },
+  "bldg_214": {
+    "damage": "major",
+    "confidence": 0.76
+  },
+  "bldg_215": {
+    "damage": "destroyed",
+    "confidence": 0.98
+  },
+  "bldg_216": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_217": {
+    "damage": "destroyed",
+    "confidence": 0.83
+  },
+  "bldg_218": {
+    "damage": "destroyed",
+    "confidence": 0.81
+  },
+  "bldg_219": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_220": {
+    "damage": "major",
+    "confidence": 0.81
+  },
+  "bldg_221": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_222": {
+    "damage": "destroyed",
+    "confidence": 0.84
+  },
+  "bldg_223": {
+    "damage": "destroyed",
+    "confidence": 0.97
+  },
+  "bldg_224": {
+    "damage": "destroyed",
+    "confidence": 0.89
+  },
+  "bldg_225": {
+    "damage": "destroyed",
+    "confidence": 0.77
+  },
+  "bldg_226": {
+    "damage": "destroyed",
+    "confidence": 0.84
+  },
+  "bldg_227": {
+    "damage": "destroyed",
+    "confidence": 0.83
+  },
+  "bldg_228": {
+    "damage": "destroyed",
+    "confidence": 0.93
+  },
+  "bldg_229": {
+    "damage": "destroyed",
+    "confidence": 0.86
+  },
+  "bldg_230": {
+    "damage": "destroyed",
+    "confidence": 0.81
+  },
+  "bldg_231": {
+    "damage": "destroyed",
+    "confidence": 0.81
+  },
+  "bldg_232": {
+    "damage": "major",
+    "confidence": 0.85
+  },
+  "bldg_233": {
+    "damage": "destroyed",
+    "confidence": 0.9
+  },
+  "bldg_234": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_235": {
+    "damage": "destroyed",
+    "confidence": 0.92
+  },
+  "bldg_236": {
+    "damage": "none",
+    "confidence": 0.72
+  },
+  "bldg_237": {
+    "damage": "destroyed",
+    "confidence": 0.81
+  },
+  "bldg_238": {
+    "damage": "major",
+    "confidence": 0.75
+  },
+  "bldg_239": {
+    "damage": "destroyed",
+    "confidence": 0.89
+  },
+  "bldg_240": {
+    "damage": "destroyed",
+    "confidence": 0.92
+  },
+  "bldg_241": {
+    "damage": "destroyed",
+    "confidence": 0.79
+  },
+  "bldg_242": {
+    "damage": "destroyed",
+    "confidence": 0.82
+  },
+  "bldg_243": {
+    "damage": "destroyed",
+    "confidence": 0.83
+  },
+  "bldg_244": {
+    "damage": "destroyed",
+    "confidence": 0.8
+  },
+  "bldg_245": {
+    "damage": "destroyed",
+    "confidence": 0.91
+  },
+  "bldg_246": {
+    "damage": "destroyed",
+    "confidence": 0.82
+  },
+  "bldg_247": {
+    "damage": "destroyed",
+    "confidence": 0.84
+  },
+  "bldg_248": {
+    "damage": "destroyed",
+    "confidence": 0.86
+  },
+  "bldg_249": {
+    "damage": "major",
+    "confidence": 0.85
+  },
+  "bldg_250": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_251": {
+    "damage": "destroyed",
+    "confidence": 0.86
+  },
+  "bldg_252": {
+    "damage": "major",
+    "confidence": 0.83
+  },
+  "bldg_253": {
+    "damage": "major",
+    "confidence": 0.81
+  },
+  "bldg_254": {
+    "damage": "destroyed",
+    "confidence": 0.89
+  },
+  "bldg_255": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_256": {
+    "damage": "major",
+    "confidence": 0.84
+  },
+  "bldg_257": {
+    "damage": "destroyed",
+    "confidence": 0.89
+  },
+  "bldg_258": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_259": {
+    "damage": "destroyed",
+    "confidence": 0.94
+  },
+  "bldg_260": {
+    "damage": "minor",
+    "confidence": 0.7
+  },
+  "bldg_261": {
+    "damage": "destroyed",
+    "confidence": 0.92
+  },
+  "bldg_262": {
+    "damage": "destroyed",
+    "confidence": 0.76
+  },
+  "bldg_263": {
+    "damage": "destroyed",
+    "confidence": 0.81
+  },
+  "bldg_264": {
+    "damage": "destroyed",
+    "confidence": 0.91
+  },
+  "bldg_265": {
+    "damage": "destroyed",
+    "confidence": 0.83
+  },
+  "bldg_266": {
+    "damage": "destroyed",
+    "confidence": 0.85
+  },
+  "bldg_267": {
+    "damage": "destroyed",
+    "confidence": 0.82
+  },
+  "bldg_268": {
+    "damage": "major",
+    "confidence": 0.82
+  },
+  "bldg_269": {
+    "damage": "destroyed",
+    "confidence": 0.77
+  },
+  "bldg_270": {
+    "damage": "destroyed",
+    "confidence": 0.93
+  },
+  "bldg_271": {
+    "damage": "destroyed",
+    "confidence": 0.78
+  },
+  "bldg_272": {
+    "damage": "destroyed",
+    "confidence": 0.84
+  },
+  "bldg_273": {
+    "damage": "destroyed",
+    "confidence": 0.91
+  },
+  "bldg_274": {
+    "damage": "major",
+    "confidence": 0.85
+  },
+  "bldg_275": {
+    "damage": "destroyed",
+    "confidence": 0.86
+  },
+  "bldg_276": {
+    "damage": "destroyed",
+    "confidence": 0.95
+  }
+}
