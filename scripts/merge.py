@@ -20,6 +20,7 @@ THUMB_DIR = "thumbs"  # relative to web/, so paths work locally and when deploye
 DEFAULT_DAMAGE = "none"
 DEFAULT_CONFIDENCE = 0.0
 UNKNOWN = "Unknown location"
+UNKNOWN_TYPE = "unknown"
 
 
 def main():
@@ -41,7 +42,11 @@ def main():
         if d is None:
             no_damage += 1
             d = {}
-        addr = addresses.get(bid)
+        entry = addresses.get(bid)
+        if isinstance(entry, str):  # older addresses.json: {id: address}
+            entry = {"address": entry}
+        entry = entry or {}
+        addr = entry.get("address")
         if not addr:
             no_address += 1
             addr = UNKNOWN
@@ -53,6 +58,7 @@ def main():
                 "damage": d.get("damage", DEFAULT_DAMAGE),
                 "confidence": d.get("confidence", DEFAULT_CONFIDENCE),
                 "address": addr,
+                "building_type": entry.get("building_type") or UNKNOWN_TYPE,
                 "before_img": f"{THUMB_DIR}/{bid}_before.jpg",
                 "after_img": f"{THUMB_DIR}/{bid}_after.jpg",
             },

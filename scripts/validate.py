@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 WEB = ROOT / "web"
 
 DAMAGE_CLASSES = {"none", "minor", "major", "destroyed"}
-REQUIRED = ["id", "damage", "confidence", "address", "before_img", "after_img"]
+REQUIRED = ["id", "damage", "confidence", "address", "building_type", "before_img", "after_img"]
 
 
 def main():

@@ -23,6 +23,10 @@ GEOCODER_URL = "https://us1.locationiq.com/v1/reverse"  # Nominatim-compatible r
 API_KEY = os.environ.get("LOCATIONIQ_KEY")
 DELAY_SECONDS = 0.6  # LocationIQ free tier: max 2 requests/sec
 UNKNOWN = "Unknown location"
+UNKNOWN_TYPE = "unknown"
+# Geocoder classes whose 'type' describes a building or its use (school, shop, ...).
+POI_CLASSES = {"amenity", "shop", "office", "tourism", "leisure", "historic",
+               "craft", "healthcare", "man_made", "emergency"}
 
 DATA = Path(__file__).resolve().parent.parent / "data"
 CACHE_PATH = DATA / "geocode_cache.json"
@@ -65,6 +69,21 @@ def format_address(data):
     return f"{base}, {area}" if area else base
 
 
+def building_type(data):
+    """Friendly type from the geocoder's class/type, e.g. 'house', 'school', 'building'.
+
+    Returns 'unknown' when the nearest feature isn't a building (e.g. a road).
+    """
+    cls, typ = data.get("class"), data.get("type")
+    if cls == "building":
+        return "building" if typ in (None, "yes", "building") else typ.replace("_", " ")
+    if cls in POI_CLASSES and typ and typ != "yes":
+        return typ.replace("_", " ")
+    if cls == "place" and typ == "house":
+        return "house"
+    return UNKNOWN_TYPE
+
+
 def reverse(lon, lat):
     params = urllib.parse.urlencode(
         {"key": API_KEY, "format": "json", "lat": lat, "lon": lon, "zoom": 18, "addressdetails": 1}
@@ -83,6 +102,8 @@ def main():
     features = json.loads(src.read_text())["features"]
     cache = json.loads(CACHE_PATH.read_text()) if CACHE_PATH.exists() else {}
 
+    # Old cache entries were plain address strings with no building_type: refetch them.
+    cache = {k: v for k, v in cache.items() if isinstance(v, dict)}
     todo = [f for f in features if str(f["properties"][ID_FIELD]) not in cache]
     print(f"{len(features)} buildings, {len(cache)} cached, {len(todo)} to fetch "
           f"(~{int(len(todo) * DELAY_SECONDS)}s)")
@@ -91,18 +112,20 @@ def main():
         bid = str(f["properties"][ID_FIELD])
         lon, lat = centroid(f["geometry"])
         try:
-            addr = format_address(reverse(lon, lat))
+            result = reverse(lon, lat)
+            entry = {"address": format_address(result), "building_type": building_type(result)}
         except Exception as e:  # network error, 429, etc.: don't cache, retry on next run
             print(f"[{i}/{len(todo)}] {bid}: FAILED ({e})")
             time.sleep(DELAY_SECONDS)
             continue
-        cache[bid] = addr
+        cache[bid] = entry
         CACHE_PATH.write_text(json.dumps(cache, indent=2))  # save after every request
-        print(f"[{i}/{len(todo)}] {bid}: {addr}")
+        print(f"[{i}/{len(todo)}] {bid}: {entry['address']} [{entry['building_type']}]")
         time.sleep(DELAY_SECONDS)
 
     # Every building gets an entry, even if its request failed.
-    out = {str(f["properties"][ID_FIELD]): cache.get(str(f["properties"][ID_FIELD]), UNKNOWN)
+    fallback = {"address": UNKNOWN, "building_type": UNKNOWN_TYPE}
+    out = {str(f["properties"][ID_FIELD]): cache.get(str(f["properties"][ID_FIELD]), fallback)
            for f in features}
     dst.write_text(json.dumps(out, indent=2))
     missing = sum(1 for f in features if str(f["properties"][ID_FIELD]) not in cache)
