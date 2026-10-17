@@ -1,7 +1,1106 @@
 {
-  "b001": "975 Front Street, Lahaina",
-  "b002": "962 Front Street, Lahaina",
-  "b003": "near Baker Street, Lahaina",
-  "b004": "945 Front Street, Lahaina",
-  "b005": "901 Front Street, Lahaina"
+  "bldg_001": {
+    "address": "1004 West 26th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_002": {
+    "address": "1018 West 26th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_003": {
+    "address": "1022 West 26th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_004": {
+    "address": "1022 West 26th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_005": {
+    "address": "1022 West 26th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_006": {
+    "address": "1118 West 26th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_007": {
+    "address": "1120 West 26th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_008": {
+    "address": "1120 West 26th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_009": {
+    "address": "1130 West 26th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_010": {
+    "address": "1136 West 26th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_011": {
+    "address": "2602 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_012": {
+    "address": "2602 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_013": {
+    "address": "2710 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_014": {
+    "address": "near West 27th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_015": {
+    "address": "2528 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_016": {
+    "address": "2528 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_017": {
+    "address": "near West 26th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_018": {
+    "address": "near West 26th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_019": {
+    "address": "2528 Bird Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_020": {
+    "address": "2528 Bird Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_021": {
+    "address": "2528 Bird Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_022": {
+    "address": "2520 Bird Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_023": {
+    "address": "2514 Bird Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_024": {
+    "address": "2508 Bird Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_025": {
+    "address": "2508 Bird Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_026": {
+    "address": "2507 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_027": {
+    "address": "2507 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_028": {
+    "address": "2507 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_029": {
+    "address": "2525 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_030": {
+    "address": "2511 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_031": {
+    "address": "2507 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_032": {
+    "address": "2505 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_033": {
+    "address": "2501 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_034": {
+    "address": "2501 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_035": {
+    "address": "2526 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_036": {
+    "address": "2522 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_037": {
+    "address": "2520 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_038": {
+    "address": "2518 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_039": {
+    "address": "2516 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_040": {
+    "address": "2516 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_041": {
+    "address": "2516 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_042": {
+    "address": "2512 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_043": {
+    "address": "2504 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_044": {
+    "address": "2502 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_045": {
+    "address": "2515 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_046": {
+    "address": "2515 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_047": {
+    "address": "2515 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_048": {
+    "address": "2515 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_049": {
+    "address": "2515 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_050": {
+    "address": "2515 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_051": {
+    "address": "2507 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_052": {
+    "address": "2507 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_053": {
+    "address": "2503 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_054": {
+    "address": "2503 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_055": {
+    "address": "2501 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_056": {
+    "address": "2530 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_057": {
+    "address": "2522 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_058": {
+    "address": "2512 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_059": {
+    "address": "2510 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_060": {
+    "address": "2508 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_061": {
+    "address": "2508 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_062": {
+    "address": "2508 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_063": {
+    "address": "2508 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_064": {
+    "address": "2502 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_065": {
+    "address": "2502 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_066": {
+    "address": "2508 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_067": {
+    "address": "2503 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_068": {
+    "address": "2513 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_069": {
+    "address": "2531 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_070": {
+    "address": "2523 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_071": {
+    "address": "2515 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_072": {
+    "address": "2515 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_073": {
+    "address": "2523 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_074": {
+    "address": "2507 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_075": {
+    "address": "2503 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_076": {
+    "address": "2501 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_077": {
+    "address": "2501 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_078": {
+    "address": "2528 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_079": {
+    "address": "2528 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_080": {
+    "address": "2522 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_081": {
+    "address": "2516 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_082": {
+    "address": "2514 South Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_083": {
+    "address": "2519 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_084": {
+    "address": "2521 South Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_085": {
+    "address": "2515 South Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_086": {
+    "address": "2510 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_087": {
+    "address": "2510 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_088": {
+    "address": "2502 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_089": {
+    "address": "2502 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_090": {
+    "address": "2510 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_091": {
+    "address": "2502 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_092": {
+    "address": "2502 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_093": {
+    "address": "2511 South Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_094": {
+    "address": "2509 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_095": {
+    "address": "2509 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_096": {
+    "address": "2501 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_097": {
+    "address": "2501 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_098": {
+    "address": "2526 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_099": {
+    "address": "near South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_100": {
+    "address": "near South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_101": {
+    "address": "2520 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_102": {
+    "address": "near South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_103": {
+    "address": "2514 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_104": {
+    "address": "2510 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_105": {
+    "address": "2510 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_106": {
+    "address": "2506 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_107": {
+    "address": "2502 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_108": {
+    "address": "2502 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_109": {
+    "address": "2428 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_110": {
+    "address": "2428 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_111": {
+    "address": "2420 Bird Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_112": {
+    "address": "2418 Bird Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_113": {
+    "address": "2402 Bird Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_114": {
+    "address": "2402 Bird Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_115": {
+    "address": "2418 Bird Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_116": {
+    "address": "2418 Bird Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_117": {
+    "address": "2427 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_118": {
+    "address": "2427 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_119": {
+    "address": "2427 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_120": {
+    "address": "2429 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_121": {
+    "address": "2427 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_122": {
+    "address": "2417 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_123": {
+    "address": "2413 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_124": {
+    "address": "2413 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_125": {
+    "address": "2405 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_126": {
+    "address": "2405 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_127": {
+    "address": "2401 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_128": {
+    "address": "2401 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_129": {
+    "address": "2401 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_130": {
+    "address": "2430 South Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_131": {
+    "address": "2428 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_132": {
+    "address": "2426 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_133": {
+    "address": "2424 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_134": {
+    "address": "2414 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_135": {
+    "address": "2426 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_136": {
+    "address": "2424 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_137": {
+    "address": "2414 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_138": {
+    "address": "2414 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_139": {
+    "address": "2410 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_140": {
+    "address": "2410 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_141": {
+    "address": "2406 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_142": {
+    "address": "2406 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_143": {
+    "address": "2406 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_144": {
+    "address": "2402 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_145": {
+    "address": "2402 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_146": {
+    "address": "2401 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_147": {
+    "address": "2401 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_148": {
+    "address": "2407 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_149": {
+    "address": "2415 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_150": {
+    "address": "2417 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_151": {
+    "address": "2423 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_152": {
+    "address": "2423 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_153": {
+    "address": "2425 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_154": {
+    "address": "2425 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_155": {
+    "address": "2430 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_156": {
+    "address": "2426 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_157": {
+    "address": "2422 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_158": {
+    "address": "2422 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_159": {
+    "address": "2420 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_160": {
+    "address": "2420 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_161": {
+    "address": "2420 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_162": {
+    "address": "2422 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_163": {
+    "address": "2420 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_164": {
+    "address": "2416 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_165": {
+    "address": "2414 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_166": {
+    "address": "2406 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_167": {
+    "address": "2402 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_168": {
+    "address": "2402 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_169": {
+    "address": "2406 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_170": {
+    "address": "1224 West 24th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_171": {
+    "address": "2421 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_172": {
+    "address": "2421 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_173": {
+    "address": "2421 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_174": {
+    "address": "2421 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_175": {
+    "address": "2417 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_176": {
+    "address": "2417 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_177": {
+    "address": "2417 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_178": {
+    "address": "2413 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_179": {
+    "address": "2413 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_180": {
+    "address": "2409 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_181": {
+    "address": "1224 West 24th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_182": {
+    "address": "2432 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_183": {
+    "address": "2424 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_184": {
+    "address": "2420 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_185": {
+    "address": "2418 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_186": {
+    "address": "2408 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_187": {
+    "address": "2408 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_188": {
+    "address": "2414 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_189": {
+    "address": "2420 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_190": {
+    "address": "2418 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_191": {
+    "address": "2418 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_192": {
+    "address": "2432 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_193": {
+    "address": "2431 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_194": {
+    "address": "2431 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_195": {
+    "address": "2423 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_196": {
+    "address": "2423 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_197": {
+    "address": "2423 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_198": {
+    "address": "2411 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_199": {
+    "address": "2411 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_200": {
+    "address": "2402 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_201": {
+    "address": "2409 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_202": {
+    "address": "2401 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_203": {
+    "address": "2407 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_204": {
+    "address": "2401 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_205": {
+    "address": "2431 West 25th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_206": {
+    "address": "2431 West 25th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_207": {
+    "address": "2431 West 25th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_208": {
+    "address": "2419 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_209": {
+    "address": "2419 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_210": {
+    "address": "2419 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_211": {
+    "address": "2419 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_212": {
+    "address": "2419 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_213": {
+    "address": "2419 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_214": {
+    "address": "2415 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_215": {
+    "address": "2415 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_216": {
+    "address": "2415 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_217": {
+    "address": "2415 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_218": {
+    "address": "2403 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_219": {
+    "address": "2401 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_220": {
+    "address": "2403 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_221": {
+    "address": "2401 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_222": {
+    "address": "2424 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_223": {
+    "address": "2424 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_224": {
+    "address": "2428 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_225": {
+    "address": "2424 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_226": {
+    "address": "2410 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_227": {
+    "address": "2408 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_228": {
+    "address": "2408 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_229": {
+    "address": "2408 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_230": {
+    "address": "2408 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_231": {
+    "address": "2408 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_232": {
+    "address": "2406 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_233": {
+    "address": "2402 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_234": {
+    "address": "2402 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_235": {
+    "address": "2402 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_236": {
+    "address": "2325 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_237": {
+    "address": "2325 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_238": {
+    "address": "2325 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_239": {
+    "address": "1419 West 24th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_240": {
+    "address": "1419 West 24th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_241": {
+    "address": "2325 South Porter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_242": {
+    "address": "2330 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_243": {
+    "address": "2322 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_244": {
+    "address": "2322 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_245": {
+    "address": "2330 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_246": {
+    "address": "2330 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_247": {
+    "address": "2317 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_248": {
+    "address": "2329 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_249": {
+    "address": "1209 West 24th Street, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_250": {
+    "address": "2328 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_251": {
+    "address": "2328 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_252": {
+    "address": "2320 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_253": {
+    "address": "2320 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_254": {
+    "address": "2329 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_255": {
+    "address": "2319 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_256": {
+    "address": "2317 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_257": {
+    "address": "2328 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_258": {
+    "address": "2328 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_259": {
+    "address": "2328 Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_260": {
+    "address": "2316 South Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_261": {
+    "address": "2316 South Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_262": {
+    "address": "2323 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_263": {
+    "address": "2323 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_264": {
+    "address": "2323 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_265": {
+    "address": "2323 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_266": {
+    "address": "2323 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_267": {
+    "address": "2323 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_268": {
+    "address": "2428 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_269": {
+    "address": "2411 Annie Baxter Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_270": {
+    "address": "2402 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_271": {
+    "address": "2402 Empire Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_272": {
+    "address": "2315 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_273": {
+    "address": "2315 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_274": {
+    "address": "2323 South Picher Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_275": {
+    "address": "2316 South Murphy Avenue, Joplin",
+    "building_type": "unknown"
+  },
+  "bldg_276": {
+    "address": "1022 West 26th Street, Joplin",
+    "building_type": "unknown"
+  }
 }
