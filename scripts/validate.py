@@ -16,7 +16,8 @@ ROOT = Path(__file__).resolve().parent.parent
 WEB = ROOT / "web"
 
 DAMAGE_CLASSES = {"none", "minor", "major", "destroyed"}
-REQUIRED = ["id", "damage", "confidence", "address", "building_type", "before_img", "after_img"]
+REQUIRED = ["id", "damage", "confidence", "address", "building_type", "height",
+            "height_source", "before_img", "after_img"]
 
 
 def main():
@@ -49,6 +50,12 @@ def main():
         c = p.get("confidence")
         if not isinstance(c, (int, float)) or not 0 <= c <= 1:
             errors.append(f"{label}: confidence {c!r} not in [0, 1]")
+
+        h = p.get("height")
+        if not isinstance(h, (int, float)) or not 0 < h <= 500:
+            errors.append(f"{label}: height {h!r} is not a positive number of metres")
+        if p.get("height_source") not in ("data", "estimated"):
+            errors.append(f"{label}: bad height_source {p.get('height_source')!r}")
 
         if p.get("address") == "Unknown location":
             warnings.append(f"{label}: address unknown")

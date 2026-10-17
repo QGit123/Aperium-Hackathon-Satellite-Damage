@@ -22,6 +22,41 @@ DEFAULT_CONFIDENCE = 0.0
 UNKNOWN = "Unknown location"
 UNKNOWN_TYPE = "unknown"
 
+# Typical heights in metres, used only when the footprint data has no real height.
+# Keys are building_type values as written by geocode.py (underscores become spaces).
+DEFAULT_HEIGHT = 6.0
+HEIGHT_BY_TYPE = {
+    "shed": 3, "garage": 3, "garages": 3, "carport": 3, "roof": 3, "hut": 3,
+    "cabin": 4, "bungalow": 4, "restaurant": 5, "shop": 5, "kiosk": 3,
+    "house": 6, "residential": 6, "detached": 6, "semidetached house": 6,
+    "terrace": 7, "building": 7, "retail": 6,
+    "industrial": 8, "warehouse": 8, "school": 8, "chapel": 8,
+    "civic": 9, "public": 9, "place of worship": 10, "church": 12,
+    "commercial": 12, "dormitory": 12, "university": 12,
+    "apartments": 15, "hotel": 15, "office": 15, "hospital": 15,
+}
+LEVEL_HEIGHT_M = 3.0  # metres per storey when the data gives building levels
+
+
+def number(value):
+    """Parse a positive number from a value like 12, '12' or '12 m'; else None."""
+    try:
+        n = float(str(value).lower().replace("m", "").strip())
+    except ValueError:
+        return None
+    return n if n > 0 else None
+
+
+def building_height(footprint_props, building_type):
+    """Return (height_m, source). Real data wins, then storeys, then type default."""
+    h = number(footprint_props.get("height"))
+    if h:
+        return round(h, 1), "data"
+    levels = number(footprint_props.get("levels") or footprint_props.get("building:levels"))
+    if levels:
+        return round(levels * LEVEL_HEIGHT_M, 1), "estimated"
+    return float(HEIGHT_BY_TYPE.get(building_type, DEFAULT_HEIGHT)), "estimated"
+
 
 def main():
     args = sys.argv[1:]
@@ -50,6 +85,8 @@ def main():
         if not addr:
             no_address += 1
             addr = UNKNOWN
+        btype = entry.get("building_type") or UNKNOWN_TYPE
+        height, height_source = building_height(f["properties"], btype)
         features.append({
             "type": "Feature",
             "geometry": f["geometry"],
@@ -58,7 +95,9 @@ def main():
                 "damage": d.get("damage", DEFAULT_DAMAGE),
                 "confidence": d.get("confidence", DEFAULT_CONFIDENCE),
                 "address": addr,
-                "building_type": entry.get("building_type") or UNKNOWN_TYPE,
+                "building_type": btype,
+                "height": height,
+                "height_source": height_source,
                 "before_img": f"{THUMB_DIR}/{bid}_before.jpg",
                 "after_img": f"{THUMB_DIR}/{bid}_after.jpg",
             },
