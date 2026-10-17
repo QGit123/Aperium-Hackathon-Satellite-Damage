@@ -1,0 +1,5 @@
+ALIGNMENT NOTE FOR PARTNER B (Thumbnail Cropping):
+- Pre-disaster footprints align with pre_disaster.tif / .png.
+- Measured global translation between pre and post imagery: dx = -1.70 px, dy = 2.10 px.
+- Recommendation for Partner B: When cropping building thumbnails with rasterio from pre_disaster.tif and post_disaster.tif, buffer each polygon bounding box by ~15-20% (or ~12 pixels) so roofs remain centered despite minor off-nadir satellite shift.
+- Visual overlay saved to: data/alignment_preview.png
