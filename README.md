@@ -76,16 +76,27 @@ python3 scripts/validate.py --strict
 | `scripts/validate.py` | Checks the schema, ids, damage classes, confidence, height and image paths. `--strict` makes missing images errors. |
 | `scripts/osm_types.py` | Experimental: looks up building type from OpenStreetMap polygons. Coverage is low (see Limits) and it is not wired into the merge. |
 
-`imagery.json` format (from A), bounds in lat/lon as `[south, west, north, east]`:
+`data/imagery.json` is written by `footprint-extract.py`. Each of `before` and `after` has the image `file` plus its georeferencing:
 
 ```json
 {
-  "before": {"file": "raw/joplin-tornado_00000144_pre_disaster.png",  "bounds": [37.061282, -94.530039, 37.065379, -94.524759]},
-  "after":  {"file": "raw/joplin-tornado_00000144_post_disaster.png", "bounds": [37.061282, -94.530039, 37.065379, -94.524759]}
+  "before": {
+    "file": "raw/joplin-tornado_00000144_pre_disaster.png",
+    "bounds": [south, west, north, east],
+    "corners": [[lon, lat], [lon, lat], [lon, lat], [lon, lat]],
+    "transform": {"lon": [ax, ay, a0], "lat": [bx, by, b0]}
+  },
+  "after": { "...": "same keys for the post-disaster image" }
 }
 ```
 
-The bounds above come from fitting the pixel and lon/lat coordinates in the raw xBD files (error about 0.01 m). They differ by about 7 m at the north and south edges from the bounding box that `footprint-extract.py` prints, which is the extent of the buildings, not of the image.
+The satellite tile is slightly rotated relative to north (about 7 m across the 1024 px), so it is **not** a simple north-up rectangle:
+
+- `transform` is exact: `lon = ax*x + ay*y + a0`, `lat = bx*x + by*y + b0`, with x/y in pixels. It is fitted from the pixel (`features.xy`) and lon/lat (`features.lng_lat`) coordinates in the raw xBD file and maps every building to within 0.02 px. `thumbnails.py` uses it.
+- `corners` are the four image corners (top-left, top-right, bottom-right, bottom-left). The map's image overlay uses these.
+- `bounds` is only the axis-aligned envelope of the corners. Using it alone (for example two corners of it) misplaces buildings by about 8 px (3.7 m) on average and up to 16 px (7 m).
+
+The GeoTIFFs A added (`data/pre_disaster.tif`, `data/post_disaster.tif`) carry the same transform.
 
 ## Status
 

@@ -15,7 +15,7 @@ Hackathon project: a static satellite damage map for one Joplin tornado tile. Re
 - Coordinates are WGS84 `[lon, lat]` (GeoJSON order). Image bounds are `[south, west, north, east]` in lat/lon.
 - Schema (`web/buildings.geojson` properties): `id`, `damage` (`none|minor|major|destroyed`), `confidence` (0-1), `address`, `building_type`, `height`, `height_source` (`data|estimated`), `before_img`, `after_img`. Image paths are relative to `web/`. New fields must be optional; never rename or remove one without telling C.
 - `address` is never empty (fallback `Unknown location`), `building_type` falls back to `unknown`.
-- The true image bounds for the Joplin tile are `[37.061282, -94.530039, 37.065379, -94.524759]`. The bounds printed by `footprint-extract.py` are the building extent, not the image extent.
+- The imagery is slightly rotated, so never place it from two corners or a plain `[south, west, north, east]` box. Use the `transform` or four `corners` in `data/imagery.json` (written by `footprint-extract.py`); `bounds` there is only the axis-aligned envelope. Two-corner placement was off by up to ~7 m.
 
 ## Scripts
 

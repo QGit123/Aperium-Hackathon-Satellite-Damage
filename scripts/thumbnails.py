@@ -4,12 +4,15 @@
 Usage:
     python3 scripts/thumbnails.py [footprints.geojson] [imagery.json] [out_dir]
 
-imagery.json (from A) describes the web-ready pre/post images and their extent:
+imagery.json (written by footprint-extract.py) describes the pre/post images:
     {
-      "before": {"file": "data/pre.png",  "bounds": [south, west, north, east]},
-      "after":  {"file": "data/post.png", "bounds": [south, west, north, east]}
+      "before": {"file": "raw/pre.png",  "bounds": [south, west, north, east],
+                 "corners": [[lon, lat] x4], "transform": {"lon": [ax, ay, a0], "lat": [bx, by, b0]}},
+      "after":  {"file": "raw/post.png", ...same keys...}
     }
-Bounds are lat/lon (WGS84). File paths are relative to imagery.json.
+`transform` (lon = ax*x + ay*y + a0, lat = bx*x + by*y + b0, x/y in pixels) is exact and used when
+present; the images are slightly rotated, so `bounds` alone is off by up to ~7 m at two corners.
+Coordinates are WGS84. File paths are relative to imagery.json.
 
 Output: out_dir/{id}_before.jpg and out_dir/{id}_after.jpg (default web/thumbs).
 If a crop fails, a grey placeholder is written so no image link is ever broken.
@@ -56,20 +59,36 @@ def padded_box(bbox, lat):
     return cx - half_w, cy - half_h, cx + half_w, cy + half_h
 
 
-def to_pixels(box, bounds, size):
-    """Convert a lon/lat box to a pixel box. Image top-left = (west, north)."""
-    south, west, north, east = bounds
+def pixel_mapper(entry, size):
+    """Return f(lon, lat) -> (x, y) pixel for an imagery.json entry.
+
+    Uses the exact affine `transform` when present (the images are slightly rotated);
+    otherwise falls back to a linear map over `bounds` (top-left = west, north).
+    """
+    t = entry.get("transform")
+    if t:
+        (ax, ay, a0), (bx, by, b0) = t["lon"], t["lat"]  # lon = ax*x + ay*y + a0, lat = bx*x + by*y + b0
+        det = ax * by - ay * bx
+
+        def from_transform(lon, lat):
+            dx, dy = lon - a0, lat - b0
+            return (by * dx - ay * dy) / det, (ax * dy - bx * dx) / det
+        return from_transform
+    south, west, north, east = entry["bounds"]
     w, h = size
+    return lambda lon, lat: ((lon - west) / (east - west) * w, (north - lat) / (north - south) * h)
+
+
+def to_pixels(box, mapper):
+    """Convert a lon/lat box to the pixel box that encloses its four corners."""
     min_lon, min_lat, max_lon, max_lat = box
-    left = (min_lon - west) / (east - west) * w
-    right = (max_lon - west) / (east - west) * w
-    top = (north - max_lat) / (north - south) * h
-    bottom = (north - min_lat) / (north - south) * h
-    return left, top, right, bottom
+    pts = [mapper(lon, lat) for lon in (min_lon, max_lon) for lat in (min_lat, max_lat)]
+    xs, ys = [p[0] for p in pts], [p[1] for p in pts]
+    return min(xs), min(ys), max(xs), max(ys)
 
 
-def crop(img, bounds, box):
-    left, top, right, bottom = to_pixels(box, bounds, img.size)
+def crop(img, mapper, box):
+    left, top, right, bottom = to_pixels(box, mapper)
     left, top = max(0, round(left)), max(0, round(top))
     right, bottom = min(img.width, round(right)), min(img.height, round(bottom))
     if right - left < 2 or bottom - top < 2:
@@ -90,7 +109,8 @@ def load(entry, base):
     s, w, n, e = entry["bounds"]
     if not (s < n and w < e):
         raise ValueError(f"bounds for {path.name} must be [south, west, north, east]")
-    return Image.open(path), entry["bounds"]
+    img = Image.open(path)
+    return img, pixel_mapper(entry, img.size)
 
 
 def main():
@@ -102,9 +122,10 @@ def main():
     imagery = json.loads(imagery_path.read_text())
     sources = {}
     for name in ("before", "after"):
-        img, bounds = load(imagery[name], imagery_path.parent)
-        sources[name] = (img, bounds)
-        print(f"{name}: {imagery[name]['file']} {img.size} bounds={bounds}")
+        img, mapper = load(imagery[name], imagery_path.parent)
+        sources[name] = (img, mapper)
+        mode = "affine transform" if imagery[name].get("transform") else "bounds only"
+        print(f"{name}: {imagery[name]['file']} {img.size} georeferenced by {mode}")
 
     out_dir.mkdir(parents=True, exist_ok=True)
     features = json.loads(footprints.read_text())["features"]
@@ -113,9 +134,9 @@ def main():
         bid = str(f["properties"][ID_FIELD])
         bbox = polygon_bbox(f["geometry"])
         box = padded_box(bbox, (bbox[1] + bbox[3]) / 2)
-        for name, (img, bounds) in sources.items():
+        for name, (img, mapper) in sources.items():
             try:
-                thumb = crop(img, bounds, box)
+                thumb = crop(img, mapper, box)
             except Exception as e:
                 print(f"{bid} {name}: {e}, using placeholder")
                 thumb, failed = placeholder(), failed + 1

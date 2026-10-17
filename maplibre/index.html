@@ -506,7 +506,7 @@
     // ---------- Satellite imagery (optional) ----------
 
     // imagery/imagery.json is written by scripts/build.sh:
-    //   { before|after: { file, bounds: [south, west, north, east] } }
+    //   { before|after: { file, bounds: [south, west, north, east], corners: [[lon, lat] x4] } }
     // If it is missing, the Map/Before/After toggle stays hidden and the street map is used.
     async function addImagery() {
       try {
@@ -514,11 +514,13 @@
         if (!response.ok) return;
         const imagery = await response.json();
         ['before', 'after'].forEach(name => {
-          const { file, bounds: [south, west, north, east] } = imagery[name];
+          const { file, corners, bounds: [south, west, north, east] } = imagery[name];
+          // The image is slightly rotated, so use its four real corners (lon, lat:
+          // top-left, top-right, bottom-right, bottom-left) when available.
           map.addSource('imagery-' + name, {
             type: 'image',
             url: 'imagery/' + file.split('/').pop(),
-            coordinates: [[west, north], [east, north], [east, south], [west, south]]
+            coordinates: corners || [[west, north], [east, north], [east, south], [west, south]]
           });
           map.addLayer({
             id: 'imagery-' + name,

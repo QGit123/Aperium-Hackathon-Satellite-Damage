@@ -44,12 +44,17 @@ def extract_footprints():
     write_imagery_json(data)
 
 
-def image_bounds(data):
-    """Return the image's [south, west, north, east] in lat/lon.
+def image_georef(data):
+    """Return the image's georeferencing: transform, 4 corners and axis-aligned bounds.
 
     The raw file lists every building in pixel coordinates (features.xy) and in
     lon/lat (features.lng_lat), in the same order. Fit a straight-line (affine)
     pixel -> lon/lat transform to those pairs, then apply it to the image corners.
+
+    The image is slightly rotated relative to north (about 7 m across the tile), so
+    two corners are not enough: `corners` (lon, lat; top-left, top-right, bottom-right,
+    bottom-left) and `transform` are exact, `bounds` is only the axis-aligned
+    [south, west, north, east] of those corners.
     """
     xy_list = data["features"]["xy"]
     ll_list = data["features"]["lng_lat"]
@@ -68,23 +73,30 @@ def image_bounds(data):
         return lon_fit @ [x, y, 1], lat_fit @ [x, y, 1]
 
     meta = data["metadata"]
-    west, north = to_lonlat(0, 0)
-    east, south = to_lonlat(meta["width"], meta["height"])
-    return [float(south), float(west), float(north), float(east)]
+    w, h = meta["width"], meta["height"]
+    corners = [[float(v) for v in to_lonlat(x, y)] for x, y in ((0, 0), (w, 0), (w, h), (0, h))]
+    lons, lats = [c[0] for c in corners], [c[1] for c in corners]
+    return {
+        "bounds": [min(lats), min(lons), max(lats), max(lons)],
+        "corners": corners,
+        "transform": {"lon": [float(v) for v in lon_fit], "lat": [float(v) for v in lat_fit]},
+    }
 
 
 def write_imagery_json(data):
-    bounds = image_bounds(data)
+    georef = image_georef(data)
+    bounds = georef["bounds"]
     pre_png = os.path.basename(PRE_JSON).replace(".json", ".png")
     post_png = pre_png.replace("pre_disaster", "post_disaster")
     imagery = {
-        "before": {"file": f"raw/{pre_png}", "bounds": bounds},
-        "after": {"file": f"raw/{post_png}", "bounds": bounds},
+        "before": {"file": f"raw/{pre_png}", **georef},
+        "after": {"file": f"raw/{post_png}", **georef},
     }
     with open(OUTPUT_IMAGERY, "w") as f:
         json.dump(imagery, f, indent=2)
     print(f"[Done] Saved {OUTPUT_IMAGERY}")
-    print(f"[For Person C Leaflet ImageOverlay Bounds] [[{bounds[0]:.6f}, {bounds[1]:.6f}], [{bounds[2]:.6f}, {bounds[3]:.6f}]]")
+    print(f"[Axis-aligned bounds, approximate: image is slightly rotated; use corners/transform] "
+          f"[[{bounds[0]:.6f}, {bounds[1]:.6f}], [{bounds[2]:.6f}, {bounds[3]:.6f}]]")
 
 
 if __name__ == "__main__":
