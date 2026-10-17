@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leaflet Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    html, body { height: 100%; margin: 0; }
+    #map { height: 100%; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([20, 0], 2);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Parse a simple CSV text file: name,lat,lng,description (first line is a header).
+    function parseData(text) {
+      return text
+        .trim()
+        .split('\n')
+        .slice(1)
+        .map(line => {
+          const [name, lat, lng, ...rest] = line.split(',');
+          return { name, lat: parseFloat(lat), lng: parseFloat(lng), description: rest.join(',').trim() };
+        })
+        .filter(p => !isNaN(p.lat) && !isNaN(p.lng));
+    }
+
+    fetch('data.txt')
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to load data.txt: ' + response.status);
+        return response.text();
+      })
+      .then(text => {
+        const points = parseData(text);
+        const markers = points.map(p =>
+          L.marker([p.lat, p.lng])
+            .addTo(map)
+            .bindPopup('<strong>' + p.name + '</strong><br>' + p.description)
+        );
+        if (markers.length) {
+          map.fitBounds(L.featureGroup(markers).getBounds().pad(0.2));
+        }
+      })
+      .catch(err => console.error(err));
+  </script>
+</body>
+</html>

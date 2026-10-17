@@ -1,0 +1,9 @@
+name,lat,lng,description
+San Francisco,37.7749,-122.4194,Golden Gate city
+New York,40.7128,-74.0060,The Big Apple
+London,51.5074,-0.1278,Capital of the UK
+Paris,48.8566,2.3522,City of Light
+Tokyo,35.6762,139.6503,Largest metro area in the world
+Sydney,-33.8688,151.2093,Home of the Opera House
+Cape Town,-33.9249,18.4241,Beneath Table Mountain
+São Paulo,-23.5505,-46.6333,Largest city in Brazil

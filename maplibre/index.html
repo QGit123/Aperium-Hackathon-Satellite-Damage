@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fire Damage Review</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { display: flex; flex-direction: column; font-family: system-ui, sans-serif; font-size: 14px; color: #263238; }
+
+    /* Top bar: title, summary counts, search */
+    #topbar { display: flex; align-items: center; gap: 24px; padding: 10px 16px; background: #263238; color: #fff; flex-wrap: wrap; }
+    #topbar h1 { font-size: 18px; margin: 0; font-weight: 600; }
+    #summary { display: flex; gap: 8px; flex-wrap: wrap; flex: 1; }
+    .stat { background: rgba(255,255,255,0.1); border-radius: 6px; padding: 4px 10px; display: flex; align-items: baseline; gap: 6px; }
+    .stat b { font-size: 18px; }
+    .stat span { font-size: 12px; opacity: 0.85; }
+    .stat .dot { align-self: center; }
+
+    #searchbox { position: relative; width: 280px; }
+    #search { width: 100%; padding: 7px 10px; border: 0; border-radius: 6px; font-size: 14px; }
+    #results { position: absolute; top: 100%; left: 0; right: 0; margin: 4px 0 0; padding: 0; list-style: none; background: #fff; color: #263238; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,0.3); z-index: 10; overflow: hidden; }
+    #results li { padding: 8px 10px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+    #results li:hover, #results li.active { background: #e3f2fd; }
+    #results li.empty { color: #78909c; cursor: default; }
+    #results li.empty:hover { background: none; }
+
+    /* Filter row */
+    #filters { display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: #eceff1; border-bottom: 1px solid #cfd8dc; flex-wrap: wrap; }
+    #chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; border: 1px solid #b0bec5; background: #fff; cursor: pointer; font-size: 13px; user-select: none; }
+    .chip.off { opacity: 0.45; background: #eceff1; }
+    .chip.off .dot { background: #b0bec5 !important; }
+    .dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; flex: none; }
+
+    /* Dual-handle confidence range: two range inputs stacked on one track */
+    #confrange { display: inline-flex; align-items: center; gap: 10px; margin-left: 16px; }
+    #confrange .label { white-space: nowrap; }
+    #confrange output { min-width: 84px; font-variant-numeric: tabular-nums; color: #546e7a; }
+    .dual { position: relative; width: 180px; height: 22px; }
+    .dual::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 4px; margin-top: -2px; background: #b0bec5; border-radius: 2px; }
+    .dual .fill { position: absolute; top: 50%; height: 4px; margin-top: -2px; background: #546e7a; border-radius: 2px; }
+    .dual input[type=range] { position: absolute; left: 0; top: 0; width: 100%; height: 22px; margin: 0; background: none; pointer-events: none; -webkit-appearance: none; appearance: none; }
+    .dual input[type=range]::-webkit-slider-runnable-track { background: none; height: 22px; }
+    .dual input[type=range]::-moz-range-track { background: none; height: 22px; }
+    .dual input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; pointer-events: auto; width: 16px; height: 16px; margin-top: 3px; border-radius: 50%; background: #fff; border: 2px solid #37474f; cursor: pointer; }
+    .dual input[type=range]::-moz-range-thumb { pointer-events: auto; width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 2px solid #37474f; cursor: pointer; }
+    #showing { margin-left: auto; color: #546e7a; }
+
+    /* Map and detail panel */
+    #mapwrap { position: relative; flex: 1; min-height: 0; }
+    #map { position: absolute; inset: 0; }
+
+    #detail { position: absolute; top: 12px; right: 12px; bottom: 12px; width: 340px; max-width: calc(100% - 24px); background: #fff; border-radius: 8px; box-shadow: 0 4px 18px rgba(0,0,0,0.3); overflow-y: auto; z-index: 5; }
+    #detail[hidden] { display: none; }
+    #detail header { padding: 14px 44px 10px 16px; border-bottom: 1px solid #eceff1; position: relative; }
+    #detail h2 { margin: 0 0 6px; font-size: 16px; }
+    #close { position: absolute; top: 8px; right: 8px; border: 0; background: none; font-size: 22px; line-height: 1; cursor: pointer; color: #78909c; padding: 4px 8px; }
+    #close:hover { color: #263238; }
+    .badge { display: inline-block; padding: 2px 10px; border-radius: 999px; color: #fff; font-weight: 600; font-size: 12px; text-transform: capitalize; }
+    .badge.light { color: #263238; }
+    dl { margin: 0; padding: 12px 16px; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; }
+    dt { color: #78909c; }
+    dd { margin: 0; }
+    .bar { height: 6px; background: #eceff1; border-radius: 3px; margin-top: 4px; overflow: hidden; }
+    .bar > div { height: 100%; background: #546e7a; }
+    .photos { padding: 0 16px 8px; display: grid; gap: 10px; }
+    #photo-toggle { display: flex; border: 1px solid #546e7a; border-radius: 6px; overflow: hidden; }
+    #photo-toggle button { flex: 1; border: 0; background: #fff; color: #37474f; padding: 6px 0; font-size: 13px; cursor: pointer; }
+    #photo-toggle button + button { border-left: 1px solid #546e7a; }
+    #photo-toggle button.on { background: #37474f; color: #fff; font-weight: 600; }
+    figure { margin: 0; }
+    figure img { width: 100%; display: block; border-radius: 6px; background: #eceff1; aspect-ratio: 4 / 3; object-fit: cover; }
+    figcaption { margin-top: 4px; font-size: 12px; color: #546e7a; }
+    .disclaimer { margin: 4px 16px 16px; padding: 8px 10px; background: #fff8e1; border-radius: 6px; font-size: 12px; color: #6d4c00; }
+  </style>
+</head>
+<body>
+  <div id="topbar">
+    <h1>Fire Damage Review</h1>
+    <div id="summary"></div>
+    <div id="searchbox">
+      <input id="search" type="search" placeholder="Search address or building ID" autocomplete="off">
+      <ul id="results" hidden></ul>
+    </div>
+  </div>
+
+  <div id="filters">
+    <div id="chips"></div>
+    <div id="confrange">
+      <span class="label">Confidence</span>
+      <div class="dual">
+        <div class="fill" id="conf-fill"></div>
+        <input type="range" id="conf-min" min="0" max="100" step="1" value="0" aria-label="Minimum confidence">
+        <input type="range" id="conf-max" min="0" max="100" step="1" value="100" aria-label="Maximum confidence">
+      </div>
+      <output id="conf-label"></output>
+    </div>
+    <span id="showing"></span>
+  </div>
+
+  <div id="mapwrap">
+    <div id="map"></div>
+    <aside id="detail" hidden>
+      <header>
+        <button id="close" aria-label="Close">&times;</button>
+        <h2 id="d-address"></h2>
+        <span id="d-badge" class="badge"></span>
+      </header>
+      <dl>
+        <dt>Confidence</dt>
+        <dd><span id="d-conf"></span><div class="bar"><div id="d-bar"></div></div></dd>
+        <dt>Building ID</dt>
+        <dd id="d-id"></dd>
+      </dl>
+      <div class="photos">
+        <div id="photo-toggle" role="group" aria-label="Photo">
+          <button type="button" data-photo="before" aria-pressed="false">Before</button>
+          <button type="button" data-photo="after" aria-pressed="true" class="on">After</button>
+        </div>
+        <figure>
+          <img id="d-img" alt="">
+          <figcaption id="d-caption"></figcaption>
+        </figure>
+      </div>
+      <p class="disclaimer">Damage levels are automated estimates for triage, not claim determinations.</p>
+    </aside>
+  </div>
+
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script>
+    const DEFAULT_HEIGHT_M = 4;
+    const LOW_CONFIDENCE = 0.7;
+    const PLACEHOLDER_IMG = 'placeholder.svg';
+
+    // Display order, colors and labels for each damage level.
+    const LEVELS = ['destroyed', 'major', 'minor', 'none'];
+    const DAMAGE_COLORS = {
+      destroyed: '#d32f2f',
+      major: '#fb8c00',
+      minor: '#fdd835',
+      none: '#4caf50',
+      unknown: '#9e9e9e'
+    };
+    const SELECTED_COLOR = '#1976d2';
+
+    let buildings = [];                    // prepared GeoJSON features
+    const activeLevels = new Set();        // damage levels currently shown
+    let confMin = 0;                       // confidence range to show, in whole percent
+    let confMax = 100;
+    let selectedId = null;
+
+    const $ = id => document.getElementById(id);
+
+    // Raster OpenStreetMap tiles, so no API key or vector style is needed.
+    const map = new maplibregl.Map({
+      container: 'map',
+      center: [-156.682, 20.878],
+      zoom: 17,
+      pitch: 45,
+      bearing: -20,
+      style: {
+        version: 8,
+        sources: {
+          osm: {
+            type: 'raster',
+            tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+            tileSize: 256,
+            maxzoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }
+        },
+        layers: [{ id: 'osm', type: 'raster', source: 'osm' }]
+      }
+    });
+    map.addControl(new maplibregl.NavigationControl());
+
+    // ---------- Data preparation ----------
+
+    // Keep Polygon/MultiPolygon features; add `height` (DEFAULT_HEIGHT_M unless the data has one),
+    // `color`, and normalized `damage`, `confidence` and `id` properties.
+    function prepareBuildings(geojson) {
+      if (geojson.type !== 'FeatureCollection' || !Array.isArray(geojson.features)) {
+        throw new Error('buildings.geojson must be a GeoJSON FeatureCollection');
+      }
+      return geojson.features
+        .filter(f => f.geometry && ['Polygon', 'MultiPolygon'].includes(f.geometry.type))
+        .map((f, i) => {
+          const p = f.properties || {};
+          const damage = LEVELS.includes(p.damage) ? p.damage : 'unknown';
+          const confidence = parseFloat(p.confidence);
+          return {
+            ...f,
+            properties: {
+              ...p,
+              id: p.id != null ? String(p.id) : 'feature-' + i,
+              damage,
+              confidence: isNaN(confidence) ? null : confidence,
+              height: parseFloat(p.height) || DEFAULT_HEIGHT_M,
+              color: DAMAGE_COLORS[damage]
+            }
+          };
+        });
+    }
+
+    function extendBounds(bounds, coords) {
+      if (typeof coords[0] === 'number') bounds.extend(coords);
+      else coords.forEach(c => extendBounds(bounds, c));
+    }
+
+    function boundsOf(feature) {
+      const b = new maplibregl.LngLatBounds();
+      extendBounds(b, feature.geometry.coordinates);
+      return b;
+    }
+
+    const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+    const pct = c => (c == null ? 'n/a' : Math.round(c * 100) + '%');
+    const isLow = p => (p.confidence == null ? 0 : p.confidence) < LOW_CONFIDENCE;
+    const confPct = p => Math.round((p.confidence == null ? 0 : p.confidence) * 100);
+    const inConfRange = p => confPct(p) >= confMin && confPct(p) <= confMax;
+    const isVisible = p => activeLevels.has(p.damage) && inConfRange(p);
+
+    function el(tag, className, text) {
+      const e = document.createElement(tag);
+      if (className) e.className = className;
+      if (text != null) e.textContent = text;
+      return e;
+    }
+
+    function dot(color) {
+      const d = el('span', 'dot');
+      d.style.background = color;
+      return d;
+    }
+
+    // ---------- Summary bar, chips, counts ----------
+
+    function levelsPresent() {
+      const present = LEVELS.slice();
+      if (buildings.some(f => f.properties.damage === 'unknown')) present.push('unknown');
+      return present;
+    }
+
+    function renderSummary() {
+      const box = $('summary');
+      box.replaceChildren();
+
+      const total = el('div', 'stat');
+      total.append(el('b', null, String(buildings.length)), el('span', null, 'buildings'));
+      box.append(total);
+
+      levelsPresent().forEach(level => {
+        const n = buildings.filter(f => f.properties.damage === level).length;
+        const s = el('div', 'stat');
+        s.append(dot(DAMAGE_COLORS[level]), el('b', null, String(n)), el('span', null, level));
+        box.append(s);
+      });
+
+      const low = buildings.filter(f => isLow(f.properties)).length;
+      const s = el('div', 'stat');
+      s.append(el('b', null, String(low)), el('span', null, 'low confidence'));
+      box.append(s);
+    }
+
+    function renderChips() {
+      const box = $('chips');
+      box.replaceChildren();
+      levelsPresent().forEach(level => {
+        const chip = el('span', 'chip' + (activeLevels.has(level) ? '' : ' off'));
+        chip.dataset.level = level;
+        chip.append(dot(DAMAGE_COLORS[level]), document.createTextNode(cap(level)));
+        chip.addEventListener('click', () => {
+          if (activeLevels.has(level)) activeLevels.delete(level);
+          else activeLevels.add(level);
+          applyFilter();
+        });
+        box.append(chip);
+      });
+    }
+
+    function applyFilter() {
+      renderChips();
+      const filter = ['all',
+        activeLevels.size
+          ? ['in', ['get', 'damage'], ['literal', [...activeLevels]]]
+          : ['==', ['get', 'damage'], '__none__']
+      ];
+      if (confMin > 0 || confMax < 100) {
+        // Same rounding as confPct(); a missing confidence counts as 0%.
+        const pctExpr = ['round', ['*', ['to-number', ['get', 'confidence'], 0], 100]];
+        filter.push(['>=', pctExpr, confMin], ['<=', pctExpr, confMax]);
+      }
+      map.setFilter('buildings', filter);
+
+      const shown = buildings.filter(f => isVisible(f.properties)).length;
+      $('showing').textContent = 'Showing ' + shown + ' of ' + buildings.length;
+    }
+
+    // ---------- Confidence range slider ----------
+
+    const confMinInput = $('conf-min');
+    const confMaxInput = $('conf-max');
+
+    function renderConfRange() {
+      confMinInput.value = confMin;
+      confMaxInput.value = confMax;
+      $('conf-fill').style.left = confMin + '%';
+      $('conf-fill').style.width = (confMax - confMin) + '%';
+      $('conf-label').textContent = confMin + '% \u2013 ' + confMax + '%';
+      // Keep the thumb that can still move on top when both handles overlap at an end.
+      confMinInput.style.zIndex = confMin >= 50 ? 2 : 1;
+      confMaxInput.style.zIndex = confMin >= 50 ? 1 : 2;
+    }
+
+    confMinInput.addEventListener('input', () => {
+      confMin = Math.min(Number(confMinInput.value), confMax);
+      renderConfRange();
+      applyFilter();
+    });
+    confMaxInput.addEventListener('input', () => {
+      confMax = Math.max(Number(confMaxInput.value), confMin);
+      renderConfRange();
+      applyFilter();
+    });
+    renderConfRange();
+
+    // ---------- Detail panel ----------
+
+    let photoView = 'after';               // which photo the sidebar shows; kept across buildings
+    let detailProps = null;                // properties of the building shown in the sidebar
+
+    // Show the before or after photo for the current building, falling back to the placeholder.
+    function renderPhoto() {
+      document.querySelectorAll('#photo-toggle button').forEach(b => {
+        const on = b.dataset.photo === photoView;
+        b.classList.toggle('on', on);
+        b.setAttribute('aria-pressed', on);
+      });
+      if (!detailProps) return;
+
+      const label = cap(photoView);
+      const src = photoView === 'before' ? detailProps.before_img : detailProps.after_img;
+      const img = $('d-img');
+      const caption = $('d-caption');
+
+      const usePlaceholder = () => {
+        img.onerror = null;
+        img.src = PLACEHOLDER_IMG;
+        caption.textContent = label + ' (image not available)';
+      };
+      img.alt = label + ' photo';
+      caption.textContent = label;
+      if (src) {
+        img.onerror = usePlaceholder;
+        img.src = src;
+      } else {
+        usePlaceholder();
+      }
+    }
+
+    document.querySelectorAll('#photo-toggle button').forEach(b => {
+      b.addEventListener('click', () => {
+        photoView = b.dataset.photo;
+        renderPhoto();
+      });
+    });
+
+    function showDetail(p) {
+      $('d-address').textContent = p.address || 'Address unknown';
+
+      const badge = $('d-badge');
+      badge.textContent = p.damage;
+      badge.style.background = DAMAGE_COLORS[p.damage];
+      badge.classList.toggle('light', p.damage === 'minor');
+
+      $('d-conf').textContent = pct(p.confidence) + (isLow(p) ? ' (low)' : '');
+      $('d-bar').style.width = (p.confidence == null ? 0 : Math.round(p.confidence * 100)) + '%';
+      $('d-id').textContent = p.id;
+
+      detailProps = p;
+      renderPhoto();
+      $('detail').hidden = false;
+      $('detail').scrollTop = 0;
+    }
+
+    function setSelected(id) {
+      if (selectedId != null) map.setFeatureState({ source: 'buildings', id: selectedId }, { selected: false });
+      selectedId = id;
+      if (id != null) map.setFeatureState({ source: 'buildings', id }, { selected: true });
+    }
+
+    function clearSelection() {
+      detailProps = null;
+      setSelected(null);
+      $('detail').hidden = true;
+    }
+
+    // Select a building; optionally zoom to it. Re-enables any filter that would hide it.
+    function selectBuilding(id, zoom) {
+      const f = buildings.find(b => b.properties.id === id);
+      if (!f) return;
+      const p = f.properties;
+
+      if (!isVisible(p)) {
+        activeLevels.add(p.damage);
+        if (!inConfRange(p)) {
+          confMin = 0;
+          confMax = 100;
+          renderConfRange();
+        }
+        applyFilter();
+      }
+
+      setSelected(id);
+      showDetail(p);
+      if (zoom) map.fitBounds(boundsOf(f), { padding: 200, maxZoom: 19, duration: 800 });
+    }
+
+    $('close').addEventListener('click', clearSelection);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        hideResults();
+        clearSelection();
+      }
+    });
+
+    // ---------- Search ----------
+
+    const resultsBox = $('results');
+    let resultItems = [];
+    let activeIndex = -1;
+
+    function hideResults() {
+      resultsBox.hidden = true;
+      resultItems = [];
+      activeIndex = -1;
+    }
+
+    function setActiveResult(i) {
+      activeIndex = i;
+      [...resultsBox.children].forEach((li, n) => li.classList.toggle('active', n === i));
+    }
+
+    function chooseResult(f) {
+      $('search').value = f.properties.address || f.properties.id;
+      hideResults();
+      selectBuilding(f.properties.id, true);
+    }
+
+    function runSearch() {
+      const q = $('search').value.trim().toLowerCase();
+      if (!q) return hideResults();
+
+      resultItems = buildings
+        .filter(f => ((f.properties.address || '') + ' ' + f.properties.id).toLowerCase().includes(q))
+        .slice(0, 8);
+
+      resultsBox.replaceChildren();
+      if (!resultItems.length) {
+        resultsBox.append(el('li', 'empty', 'No matching buildings'));
+      } else {
+        resultItems.forEach(f => {
+          const li = el('li');
+          li.append(dot(DAMAGE_COLORS[f.properties.damage]), document.createTextNode(f.properties.address || f.properties.id));
+          li.addEventListener('click', () => chooseResult(f));
+          resultsBox.append(li);
+        });
+      }
+      activeIndex = -1;
+      resultsBox.hidden = false;
+    }
+
+    $('search').addEventListener('input', runSearch);
+    $('search').addEventListener('focus', runSearch);
+    $('search').addEventListener('keydown', e => {
+      if (resultsBox.hidden || !resultItems.length) return;
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setActiveResult((activeIndex + 1) % resultItems.length);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setActiveResult((activeIndex - 1 + resultItems.length) % resultItems.length);
+      } else if (e.key === 'Enter') {
+        chooseResult(resultItems[activeIndex >= 0 ? activeIndex : 0]);
+      }
+    });
+    document.addEventListener('click', e => {
+      if (!$('searchbox').contains(e.target)) hideResults();
+    });
+
+    // ---------- Map ----------
+
+    map.on('load', async () => {
+      try {
+        const response = await fetch('buildings.geojson');
+        if (!response.ok) throw new Error('Failed to load buildings.geojson: ' + response.status);
+        buildings = prepareBuildings(await response.json());
+        levelsPresent().forEach(l => activeLevels.add(l));
+
+        map.addSource('buildings', {
+          type: 'geojson',
+          data: { type: 'FeatureCollection', features: buildings },
+          promoteId: 'id'
+        });
+
+        const isSelected = ['boolean', ['feature-state', 'selected'], false];
+
+        map.addLayer({
+          id: 'buildings',
+          type: 'fill-extrusion',
+          source: 'buildings',
+          paint: {
+            'fill-extrusion-color': ['case', isSelected, SELECTED_COLOR, ['get', 'color']],
+            'fill-extrusion-height': ['get', 'height'],
+            'fill-extrusion-base': 0,
+            'fill-extrusion-opacity': 0.9
+          }
+        });
+
+        renderSummary();
+        applyFilter();
+
+        // Zoom to fit all buildings.
+        const bounds = new maplibregl.LngLatBounds();
+        buildings.forEach(f => extendBounds(bounds, f.geometry.coordinates));
+        if (!bounds.isEmpty()) map.fitBounds(bounds, { padding: 80, maxZoom: 19, duration: 0 });
+
+        map.on('click', e => {
+          const hit = map.queryRenderedFeatures(e.point, { layers: ['buildings'] })[0];
+          if (hit) selectBuilding(hit.properties.id, false);
+          else clearSelection();
+        });
+        map.on('mouseenter', 'buildings', () => { map.getCanvas().style.cursor = 'pointer'; });
+        map.on('mouseleave', 'buildings', () => { map.getCanvas().style.cursor = ''; });
+      } catch (err) {
+        console.error(err);
+        $('showing').textContent = 'Could not load buildings.geojson (see console)';
+      }
+    });
+  </script>
+</body>
+</html>
