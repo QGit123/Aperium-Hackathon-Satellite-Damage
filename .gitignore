@@ -5,3 +5,4 @@ __pycache__/
 data/geocode_cache.json
 .venv/
 data/damage_xbd_labels.json
+maplibre/imagery/

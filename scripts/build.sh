@@ -69,6 +69,17 @@ fi
 step "Thumbnails (maplibre/thumbs)"
 "$PY" scripts/thumbnails.py data/footprints.geojson data/imagery.json maplibre/thumbs
 
+step "Satellite imagery for the map (maplibre/imagery)"
+mkdir -p maplibre/imagery
+cp data/imagery.json maplibre/imagery/imagery.json
+"$PY" -I - <<'EOF'
+import json, shutil
+imagery = json.load(open("data/imagery.json"))
+for name in ("before", "after"):
+    shutil.copy("data/" + imagery[name]["file"], "maplibre/imagery/")
+print("Copied imagery.json and the before/after images")
+EOF
+
 step "Merge and validate"
 "$PY" scripts/merge.py data/footprints.geojson "$DAMAGE" data/addresses.json maplibre/buildings.geojson
 "$PY" scripts/validate.py --strict maplibre/buildings.geojson

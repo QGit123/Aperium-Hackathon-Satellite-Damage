@@ -49,6 +49,13 @@
     .dual input[type=range]::-moz-range-thumb { pointer-events: auto; width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 2px solid #37474f; cursor: pointer; }
     #showing { margin-left: auto; color: #546e7a; }
 
+    /* Basemap toggle: street map or before/after satellite imagery */
+    #basemap-toggle { display: inline-flex; margin-left: 16px; border: 1px solid #546e7a; border-radius: 6px; overflow: hidden; }
+    #basemap-toggle[hidden] { display: none; }
+    #basemap-toggle button { border: 0; background: #fff; color: #37474f; padding: 4px 12px; font-size: 13px; cursor: pointer; }
+    #basemap-toggle button + button { border-left: 1px solid #546e7a; }
+    #basemap-toggle button.on { background: #37474f; color: #fff; font-weight: 600; }
+
     /* Map and detail panel */
     #mapwrap { position: relative; flex: 1; min-height: 0; }
     #map { position: absolute; inset: 0; }
@@ -97,6 +104,11 @@
         <input type="range" id="conf-max" min="0" max="100" step="1" value="100" aria-label="Maximum confidence">
       </div>
       <output id="conf-label"></output>
+    </div>
+    <div id="basemap-toggle" role="group" aria-label="Basemap" hidden>
+      <button type="button" data-basemap="map" aria-pressed="true" class="on">Map</button>
+      <button type="button" data-basemap="before" aria-pressed="false">Before</button>
+      <button type="button" data-basemap="after" aria-pressed="false">After</button>
     </div>
     <span id="showing"></span>
   </div>
@@ -491,6 +503,54 @@
       if (!$('searchbox').contains(e.target)) hideResults();
     });
 
+    // ---------- Satellite imagery (optional) ----------
+
+    // imagery/imagery.json is written by scripts/build.sh:
+    //   { before|after: { file, bounds: [south, west, north, east] } }
+    // If it is missing, the Map/Before/After toggle stays hidden and the street map is used.
+    async function addImagery() {
+      try {
+        const response = await fetch('imagery/imagery.json');
+        if (!response.ok) return;
+        const imagery = await response.json();
+        ['before', 'after'].forEach(name => {
+          const { file, bounds: [south, west, north, east] } = imagery[name];
+          map.addSource('imagery-' + name, {
+            type: 'image',
+            url: 'imagery/' + file.split('/').pop(),
+            coordinates: [[west, north], [east, north], [east, south], [west, south]]
+          });
+          map.addLayer({
+            id: 'imagery-' + name,
+            type: 'raster',
+            source: 'imagery-' + name,
+            layout: { visibility: 'none' },
+            paint: { 'raster-fade-duration': 0 }
+          }, 'buildings');   // below the buildings so the polygons stay on top
+        });
+        $('basemap-toggle').hidden = false;
+        setBasemap(new URLSearchParams(location.search).get('basemap') || 'map');
+      } catch (err) {
+        console.warn('Satellite imagery not available', err);
+      }
+    }
+
+    function setBasemap(name) {
+      ['before', 'after'].forEach(n => {
+        if (map.getLayer('imagery-' + n)) {
+          map.setLayoutProperty('imagery-' + n, 'visibility', n === name ? 'visible' : 'none');
+        }
+      });
+      document.querySelectorAll('#basemap-toggle button').forEach(b => {
+        const on = b.dataset.basemap === name;
+        b.classList.toggle('on', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+    }
+    document.querySelectorAll('#basemap-toggle button').forEach(b => {
+      b.addEventListener('click', () => setBasemap(b.dataset.basemap));
+    });
+
     // ---------- Map ----------
 
     map.on('load', async () => {
@@ -520,6 +580,7 @@
           }
         });
 
+        await addImagery();
         renderSummary();
         applyFilter();
 
