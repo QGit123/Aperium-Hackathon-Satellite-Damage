@@ -1,0 +1,277 @@
+{
+  "bldg_001": {
+    "building_type": "house",
+    "levels": null,
+    "height": null
+  },
+  "bldg_042": {
+    "building_type": "house",
+    "levels": null,
+    "height": null
+  },
+  "bldg_044": {
+    "building_type": "house",
+    "levels": null,
+    "height": null
+  },
+  "bldg_045": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_046": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_052": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_055": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_056": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_057": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_058": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_059": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_060": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_062": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_064": {
+    "building_type": "detached",
+    "levels": null,
+    "height": null
+  },
+  "bldg_068": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_069": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_070": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_071": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_074": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_075": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_076": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_078": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_080": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_081": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_084": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_086": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_089": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_094": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_095": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_098": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_101": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_103": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_104": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_107": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_108": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_109": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_155": {
+    "building_type": "house",
+    "levels": null,
+    "height": null
+  },
+  "bldg_157": {
+    "building_type": "house",
+    "levels": null,
+    "height": null
+  },
+  "bldg_159": {
+    "building_type": "house",
+    "levels": null,
+    "height": null
+  },
+  "bldg_171": {
+    "building_type": "house",
+    "levels": null,
+    "height": null
+  },
+  "bldg_174": {
+    "building_type": "house",
+    "levels": null,
+    "height": null
+  },
+  "bldg_179": {
+    "building_type": "house",
+    "levels": null,
+    "height": null
+  },
+  "bldg_180": {
+    "building_type": "house",
+    "levels": null,
+    "height": null
+  },
+  "bldg_181": {
+    "building_type": "house",
+    "levels": null,
+    "height": null
+  },
+  "bldg_183": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_185": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_189": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_194": {
+    "building_type": "building",
+    "levels": "1",
+    "height": null
+  },
+  "bldg_198": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_199": {
+    "building_type": "house",
+    "levels": null,
+    "height": null
+  },
+  "bldg_201": {
+    "building_type": "house",
+    "levels": null,
+    "height": null
+  },
+  "bldg_203": {
+    "building_type": "house",
+    "levels": null,
+    "height": null
+  },
+  "bldg_224": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_225": {
+    "building_type": "building",
+    "levels": null,
+    "height": null
+  },
+  "bldg_257": {
+    "building_type": "detached",
+    "levels": null,
+    "height": null
+  }
+}
