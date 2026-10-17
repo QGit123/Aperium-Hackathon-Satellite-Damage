@@ -1,0 +1,7 @@
+{
+  "b001": {"damage": "destroyed", "confidence": 0.91},
+  "b002": {"damage": "major", "confidence": 0.74},
+  "b003": {"damage": "minor", "confidence": 0.62},
+  "b004": {"damage": "none", "confidence": 0.88},
+  "b005": {"damage": "destroyed", "confidence": 0.8}
+}
